@@ -1,0 +1,7 @@
+[cql]
+version=3.4.4
+
+[connection]
+timeout=30
+request_timeout=30
+
