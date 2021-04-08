@@ -98,6 +98,12 @@ RUN mkdir -p $GOPATH/src" $GOPATH/bin" && chmod -R 755 $GOPATH
 ENV PATH="$GOPATH/bin:$PATH"
 #ENV PATH="/usr/local/go/bin:$PATH"
 
+### python alternatives
+
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1 \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python2.7 2 \
+    && update-alternatives --set python /usr/bin/python3.7
+
 ### oracle oci cli https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/climanualinst.htm
 
 RUN pip install oci-cli
