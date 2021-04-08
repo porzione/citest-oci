@@ -58,10 +58,14 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1 \
 
 ### latest mediainfo
 
-RUN wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-16_all.deb \
-    && dpkg -i repo-mediaarea_1.0-16_all.deb \
+
+ARG MEDIAAREA_DEB=repo-mediaarea_1.0-16_all.deb
+ARG MEDIAAREA_URL=https://mediaarea.net/repo/deb/${MEDIAAREA_DEB}
+RUN wget $MEDIAAREA_URL \
+    && dpkg -i $MEDIAAREA_DEB \
     && apt-get update \
-    && apt-get install -y mediainfo
+    && apt-get install -y mediainfo \
+    && rm $MEDIAAREA_DEB
 
 ### nodejs 8.x 10.x 11.x 12.x 13.x
 
