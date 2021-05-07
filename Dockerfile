@@ -10,6 +10,7 @@ RUN for i in $(seq 1 8); do mkdir -p /usr/share/man/man${i}; done
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https \
     apt-utils \
+    bsdmainutils \
     ca-certificates \
     coreutils \
     curl \
