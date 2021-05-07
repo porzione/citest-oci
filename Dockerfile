@@ -125,7 +125,7 @@ ADD cqlshrc /root/.cassandra/cqlshrc
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
     && echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee -a /etc/apt/sources.list.d/docker.list \
     && apt-get update \
-    && apt-get install docker-ce-cli
+    && apt-get install -y --no-install-recommends docker-ce-cli
 
 ### ffmpeg
 
